@@ -5,10 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Full Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>City</th>
+      <th>Name/Category</th>
+      <!-- <th>Email</th> -->
+      <th>Phone</th>
+      <th>Country</th>
       <th></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     {{#each list}}
     <tr>
-      <td>{{this.fullName}}</td>
-      <td>{{this.email}}</td>
-      <td>{{this.mobile}}</td>
-      <td>{{this.city}}</td>
+      <td>{{this.Name}}</td>
+      <!-- <td>{{this.email}}</td> -->
+      <td>{{this.phone}}</td>
+      <td>{{this.country}}</td>
       <td><a href="/contactlist/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
         <a href="/contactlist/delete/{{this._id}}" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
       </td>

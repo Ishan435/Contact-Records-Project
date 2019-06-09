@@ -21,15 +21,15 @@ router.post('/',(req,res)=>{
 
 function insertRecord(req,res){
   var cl=new contactlist();
-  cl.fullName=req.body.fullName;
-  cl.email=req.body.email;
-  cl.mobile=req.body.mobile;
-  cl.city=req.body.city;
+  cl.Name=req.body.Name;
+  // cl.email=req.body.email;
+  cl.phone=req.body.phone;
+  cl.country=req.body.country;
   cl.save((err,doc)=>{
     if(!err)
     {
     res.redirect('contactlist/record');
-    console.log('Working...');
+    // console.log('Working...');
   }
     else {
       if(err.name =='ValidationError'){
@@ -49,13 +49,15 @@ function handleValidationError(err, body)
 {
   for (field in err.errors){
     switch (err.errors[field].path) {
-      // path here is fullname.mobile,email,city
-      case 'fullName':
-         body['fullNameError']=err.errors[field].message;
+      // path here is name,phone,country
+      case 'Name':
+         body['NameError']=err.errors[field].message;
           break;
-        case 'email':
-        body['emailError']=err.errors[field].message;
-
+      case 'phone':
+             body['PhoneError']=err.errors[field].message;
+          break;
+      case 'country':
+             body['CountryError']=err.errors[field].message;
           break;
 
       default:
